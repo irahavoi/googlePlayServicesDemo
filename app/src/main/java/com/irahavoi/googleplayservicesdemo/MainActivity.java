@@ -94,8 +94,8 @@ public class MainActivity extends Activity implements GoogleApiClient.Connection
     @Override
     public void onLocationChanged(Location location) {
         Log.i(LOG_TAG, location.toString());
-        latitudeTxt.setText(Double.toString(location.getLatitude()));
-        longitudeTxt.setText(Double.toString(location.getLongitude()));
+        latitudeTxt.setText(String.valueOf(location.getLatitude()));
+        longitudeTxt.setText(String.valueOf(location.getLongitude()));
     }
 
     @Override
