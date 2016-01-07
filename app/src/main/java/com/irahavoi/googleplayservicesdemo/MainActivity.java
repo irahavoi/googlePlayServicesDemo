@@ -18,7 +18,8 @@ import com.google.android.gms.location.LocationServices;
 public class MainActivity extends Activity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener{
 
     private final String LOG_TAG = "illiasLocationApp";
-    private TextView locationTxt;
+    private TextView latitudeTxt;
+    private TextView longitudeTxt;
     private GoogleApiClient mGoogleApiClient;
     private LocationRequest mLocationRequest;
 
@@ -34,7 +35,8 @@ public class MainActivity extends Activity implements GoogleApiClient.Connection
                 .addOnConnectionFailedListener(this)
                 .build();
 
-        locationTxt = (TextView) findViewById(R.id.locationTxt);
+        latitudeTxt = (TextView) findViewById(R.id.latitude);
+        longitudeTxt = (TextView) findViewById(R.id.longitude);
 
     }
 
@@ -92,7 +94,8 @@ public class MainActivity extends Activity implements GoogleApiClient.Connection
     @Override
     public void onLocationChanged(Location location) {
         Log.i(LOG_TAG, location.toString());
-        locationTxt.setText(location.toString());
+        latitudeTxt.setText(Double.toString(location.getLatitude()));
+        longitudeTxt.setText(Double.toString(location.getLongitude()));
     }
 
     @Override
